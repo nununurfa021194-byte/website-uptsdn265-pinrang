@@ -1,0 +1,315 @@
+---
+
+const guru = [
+  {
+    nama: "Muhammad Yusuf, S.Pd., M.Si",
+    jabatan: "Kepala Sekolah",
+    foto: "/images/guru-tendik/01-kepala-sekolah.jpeg",
+    icon: "fa-school",
+    warna: "kepala-sekolah"
+  },
+  {
+    nama: "Nurdiana, S.Pd",
+    jabatan: "Guru Kelas I",
+    foto: "/images/guru-tendik/02-guru-kelas-1.jpeg",
+    icon: "fa-chalkboard-user",
+    warna: "guru-kelas"
+  },
+  {
+    nama: "Nurul Fadhillah Iftitah Tahir, S.Pd",
+    jabatan: "Guru Kelas II",
+    foto: "/images/guru-tendik/03-guru-kelas-2.jpeg",
+    icon: "fa-chalkboard-user",
+    warna: "guru-kelas"
+  },
+  {
+    nama: "Herlina Amor, S.Pd",
+    jabatan: "Guru Kelas III",
+    foto: "/images/guru-tendik/04-guru-kelas-3.jpeg",
+    icon: "fa-chalkboard-user",
+    warna: "guru-kelas"
+  },
+  {
+    nama: "Sriyanti Kadir, S.Pd",
+    jabatan: "Guru Kelas IV",
+    foto: "/images/guru-tendik/05-guru-kelas-4.jpeg",
+    icon: "fa-chalkboard-user",
+    warna: "guru-kelas"
+  },
+  {
+    nama: "Iin Asmarani Palusseri Tangge, S.Pd",
+    jabatan: "Guru Kelas V",
+    foto: "/images/guru-tendik/06-guru-kelas-5.jpeg",
+    icon: "fa-chalkboard-user",
+    warna: "guru-kelas"
+  },
+  {
+    nama: "Sunarti, S.Pd",
+    jabatan: "Guru Kelas VI",
+    foto: "/images/guru-tendik/07-guru-kelas-6.jpeg",
+    icon: "fa-chalkboard-user",
+    warna: "guru-kelas"
+  },
+  {
+    nama: "Aris Wijaya, S.Pd",
+    jabatan: "Guru PJOK",
+    foto: "/images/guru-tendik/09-guru-pjok.jpeg",
+    icon: "fa-person-running",
+    warna: "pjok"
+  },
+  {
+    nama: "Hamirullah, S.Pd",
+    jabatan: "Guru PAI",
+    foto: "/images/guru-tendik/08-guru-pai.jpeg",
+    icon: "fa-book-quran",
+    warna: "pai"
+  },
+  {
+    nama: "Mulyadi, S.Pd",
+    jabatan: "Operator",
+    foto: "/images/guru-tendik/10-operator.jpeg",
+    icon: "fa-desktop",
+    warna: "operator"
+  },
+  {
+    nama: "Nurlia, S.Pd",
+    jabatan: "Tenaga Kependidikan",
+    foto: "/images/guru-tendik/11-pustakawan.jpeg",
+    icon: "fa-user-gear",
+    warna: "pustakawan"
+  }
+];
+---
+<section id="guru" class="guru">
+  <div class="container">
+
+   <h2>Guru & Tenaga Kependidikan</h2>
+
+<p class="subtitle">
+  Didukung oleh tenaga pendidik dan tenaga kependidikan yang profesional,
+  berdedikasi, dan berkomitmen dalam memberikan layanan pendidikan terbaik
+  bagi peserta didik.
+</p>
+
+    <div class="grid">
+  {
+    guru.map((item) => (
+      <div
+  class={`card ${item.warna}`}
+  style={`animation-delay:${guru.indexOf(item)*0.15}s`}
+>
+        <img src={item.foto} alt={item.nama} />
+
+        <h3>{item.nama}</h3>
+
+        <span class={`badge ${item.warna}`}>
+          <i class={`fa-solid ${item.icon}`}></i>
+          {item.jabatan}
+        </span>
+      </div>
+    ))
+  }
+</div>
+
+  </div>
+</section>
+<style>
+
+.guru{
+    padding:90px 8%;
+    background:#f8f9fa;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.guru h2{
+    text-align:center;
+    font-size:42px;
+    color:#0B5ED7;
+    margin-bottom:60px;
+}
+.subtitle{
+    max-width:850px;
+    margin:0 auto 60px;
+    text-align:center;
+    color:#6b7280;
+    font-size:18px;
+    line-height:1.9;
+}
+
+.guru h2{
+    text-align:center;
+    font-size:44px;
+    font-weight:800;
+    color:#0B5ED7;
+    letter-spacing:.5px;
+    margin-bottom:25px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:all .35s ease;
+    cursor:pointer;
+
+    opacity:0;
+    animation:fadeUp .8s ease forwards;
+}
+
+/* Kepala Sekolah */
+.kepala-sekolah{
+    border-top:6px solid #0B5ED7;
+}
+
+/* Guru Kelas */
+.guru-kelas{
+    border-top:6px solid #28A745;
+}
+
+/* Guru PJOK */
+.pjok{
+    border-top:6px solid #FD7E14;
+}
+
+/* Guru PAI */
+.pai{
+    border-top:6px solid #6F42C1;
+}
+
+/* Operator */
+.operator{
+    border-top:6px solid #20C997;
+}
+
+/* Pustakawan */
+.pustakawan{
+    border-top:6px solid #6C757D;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 22px 45px rgba(11,94,215,.18);
+}
+
+.card img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    object-position:center top;
+    display:block;
+    transition:.5s;
+}
+
+.card:hover img{
+    transform:scale(1.06);
+}
+
+.card h3{
+    font-size:22px;
+    color:#1F2937;
+    margin:22px 18px 12px;
+    line-height:1.5;
+    font-weight:700;
+    min-height:72px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:50px;
+    font-size:15px;
+    font-weight:600;
+     margin-bottom:30px;
+    color:white;
+
+    transition:.35s;
+}
+.badge:hover{
+    transform:scale(1.08);
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+
+.badge i{
+    font-size:15px;
+}
+
+.badge.kepala-sekolah{
+    background:#0B5ED7;
+}
+
+.badge.guru-kelas{
+    background:#28A745;
+}
+
+.badge.pjok{
+    background:#FD7E14;
+}
+
+.badge.pai{
+    background:#6F42C1;
+}
+
+.badge.operator{
+    background:#20C997;
+}
+
+.badge.pustakawan{
+    background:#6C757D;
+}
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+@media (max-width:768px){
+
+    .guru{
+        padding:70px 6%;
+    }
+
+    .guru h2{
+        font-size:34px;
+    }
+
+    .subtitle{
+        font-size:16px;
+    }
+
+    .grid{
+        gap:22px;
+    }
+
+    .card h3{
+        font-size:19px;
+    }
+
+    .badge{
+        font-size:14px;
+        padding:8px 15px;
+    }
+
+}
+</style>
+

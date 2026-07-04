@@ -1,0 +1,261 @@
+---
+const galeri = [
+  {
+    judul: "Literasi Al-Qur'an",
+    folder: "literasi-alquran",
+    cover: "/images/galeri/literasi-alquran/001-yasinan.jpeg",
+    jumlah: 4,
+    icon: "fa-book-quran"
+  },
+  {
+    judul: "Pembelajaran",
+    folder: "pembelajaran",
+    cover: "/images/galeri/pembelajaran/001-belajar.jpeg",
+    jumlah: 2,
+    icon: "fa-graduation-cap"
+  },
+  {
+    judul: "Asesmen",
+    folder: "asesmen",
+    cover: "/images/galeri/asesmen/001-anbk.jpg",
+    jumlah: 7,
+    icon: "fa-clipboard-check"
+  },
+  {
+    judul: "Kerja Bakti",
+    folder: "kerja-bakti",
+    cover: "/images/galeri/kerja-bakti/001-kerja-bakti.jpg",
+    jumlah: 1,
+    icon: "fa-seedling"
+  },
+  {
+    judul: "Olahraga",
+    folder: "olahraga",
+    cover: "/images/galeri/olahraga/001-olahraga.jpg",
+    jumlah: 2,
+    icon: "fa-futbol"
+  },
+  {
+    judul: "Lomba",
+    folder: "lomba",
+    cover: "/images/galeri/lomba/001-lomba.jpg",
+    jumlah: 5,
+    icon: "fa-trophy"
+  },
+  {
+    judul: "Perayaan",
+    folder: "perayaan",
+    cover: "/images/galeri/perayaan/001-perayaan.jpg",
+    jumlah: 4,
+    icon: "fa-calendar-days"
+  },
+  {
+    judul: "Dokumentasi Lainnya",
+    folder: "dokumentasi-lainnya",
+    cover: "/images/galeri/dokumentasi-lainnya/001-terimaraport.jpg",
+    jumlah: 9,
+    icon: "fa-images"
+  }
+];
+---
+<section id="galeri" class="galeri">
+  <div class="container">
+
+    <h2>Galeri Kegiatan</h2>
+
+    <p class="subtitle">
+  Dokumentasi berbagai kegiatan UPT SDN 265 Pinrang sebagai wujud
+  pembelajaran, pengembangan karakter, prestasi, dan kebersamaan
+  seluruh warga sekolah.
+</p>
+
+<p class="info-galeri">
+    📸 Terdapat <strong>{galeri.length}</strong> kategori dokumentasi kegiatan sekolah.
+</p>
+
+    <div class="grid">
+
+      {
+        galeri.map((item) => (
+
+          <div class="card">
+
+            <img src={item.cover} alt={item.judul} />
+
+            <div class="overlay">
+
+              <i class={`fa-solid ${item.icon}`}></i>
+
+              <h3>{item.judul}</h3>
+
+              <span>{item.jumlah} Dokumentasi</span>
+
+              <a href={`/galeri/${item.folder}`} class="btn-album">
+    Lihat Album
+</a>
+
+            </div>
+
+          </div>
+
+        ))
+      }
+
+    </div>
+
+  </div>
+</section>
+<style>
+    
+.galeri{
+    padding:90px 8%;
+    background:#f8f9fa;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.galeri h2{
+    text-align:center;
+    font-size:42px;
+    color:#0B5ED7;
+}
+
+.galeri h2::after{
+    content:"";
+    width:90px;
+    height:5px;
+    background:#FFC107;
+    display:block;
+    margin:15px auto 0;
+    border-radius:30px;
+}
+
+.subtitle{
+    max-width:850px;
+    margin:25px auto 60px;
+    text-align:center;
+    color:#666;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.info-galeri{
+    text-align:center;
+    margin-bottom:40px;
+    color:#555;
+    font-size:17px;
+}
+
+.info-galeri strong{
+    color:#0B5ED7;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+    .card{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    cursor:pointer;
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
+    transition:all .35s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 50px rgba(0,0,0,.20);
+}
+
+.card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.card:hover img{
+    transform:scale(1.12);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.88),
+        rgba(0,0,0,.20)
+    );
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:30px;
+
+    color:white;
+
+    opacity:0;
+    transition:.4s;
+}
+.card:hover .overlay{
+    opacity:1;
+}
+.overlay h3,
+.overlay span,
+.overlay .btn-album,
+.overlay i{
+    transform:translateY(20px);
+    transition:.35s;
+}
+
+.card:hover .overlay h3,
+.card:hover .overlay span,
+.card:hover .overlay .btn-album,
+.card:hover .overlay i{
+    transform:translateY(0);
+}
+.overlay i{
+    font-size:40px;
+    color:#FFC107;
+    margin-bottom:15px;
+}
+.card:hover .overlay i{
+    transform:rotate(-10deg) scale(1.1);
+}
+
+.overlay h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.overlay span{
+    display:inline-block;
+    background:rgba(255,255,255,.20);
+    padding:8px 15px;
+    border-radius:30px;
+    margin-bottom:20px;
+    width:max-content;
+}
+
+.btn-album{
+    display:inline-block;
+    background:#0B5ED7;
+    color:white;
+    padding:12px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-album:hover{
+    background:#084298;
+}
+</style>

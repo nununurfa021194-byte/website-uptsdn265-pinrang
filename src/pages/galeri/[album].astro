@@ -1,0 +1,254 @@
+---
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { galeri } from "../../data/galeri.js";
+
+export async function getStaticPaths() {
+  return galeri.map((item) => ({
+    params: { album: item.folder }
+  }));
+}
+
+const { album } = Astro.params;
+
+const data = galeri.find((item) => item.folder === album)!;
+---
+
+<section class="album">
+
+ <a href="/#galeri" class="btn-kembali">
+    <i class="fa-solid fa-arrow-left"></i>
+    Kembali ke Galeri
+</a>
+
+<h1>{data.judul}</h1>
+
+<div class="grid">
+
+{
+  data.foto.map((gambar) => (
+
+    <img
+      src={`/images/galeri/${data.folder}/${gambar}`}
+      alt={data.judul}
+    />
+
+  ))
+}
+
+</div>
+
+</section>
+
+<div id="lightbox" class="lightbox">
+
+    <span class="close">&times;</span>
+
+    <button id="prev" class="nav-btn">&#10094;</button>
+
+    <img id="lightbox-img" src="" alt="" />
+
+    <button id="next" class="nav-btn">&#10095;</button>
+
+</div>
+<style>
+
+.album{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 8%;
+}
+
+.album h1{
+    text-align:center;
+    color:#0B5ED7;
+    margin-bottom:50px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.grid img{
+    width:100%;
+    border-radius:18px;
+    object-fit:cover;
+    transition:.35s;
+    cursor:pointer;
+}
+
+.grid img:hover{
+    transform:scale(1.05);
+}
+
+.btn-kembali{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:30px;
+    padding:12px 22px;
+    background:#0B5ED7;
+    color:#fff;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-kembali:hover{
+    background:#084298;
+}
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    padding:20px;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+    box-shadow:0 0 30px rgba(255,255,255,.2);
+    animation:zoom .3s ease;
+}
+
+.close{
+    position:absolute;
+    top:30px;
+    right:40px;
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(255,255,255,.15);
+    color:white;
+    border:none;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:28px;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    background:#0B5ED7;
+}
+
+#prev{
+    left:40px;
+}
+
+#next{
+    right:40px;
+}
+
+@keyframes zoom{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.addEventListener("keydown", (e) => {
+
+  if (lightbox.style.display !== "flex") return;
+
+  if (e.key === "ArrowLeft") {
+    showImage(currentIndex - 1);
+  }
+
+  if (e.key === "ArrowRight") {
+    showImage(currentIndex + 1);
+  }
+
+  if (e.key === "Escape") {
+    lightbox.style.display = "none";
+  }
+
+});
+
+ const lightbox = document.getElementById("lightbox") as HTMLDivElement;
+const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement;
+const close = document.querySelector(".close") as HTMLSpanElement;
+
+const prev = document.getElementById("prev") as HTMLButtonElement;
+const next = document.getElementById("next") as HTMLButtonElement;
+
+const images = Array.from(
+  document.querySelectorAll<HTMLImageElement>(".grid img")
+);
+
+let currentIndex = 0;
+
+  images.forEach((img, index) => {
+
+  img.addEventListener("click", () => {
+
+    currentIndex = index;
+
+   lightbox.style.display = "flex";
+showImage(currentIndex);
+
+  });
+
+});
+
+  close.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+
+  function showImage(index: number) {
+
+  if (index < 0) {
+    currentIndex = images.length - 1;
+  } else if (index >= images.length) {
+    currentIndex = 0;
+  } else {
+    currentIndex = index;
+  }
+
+  lightboxImg.src = images[currentIndex].src;
+  lightboxImg.alt = images[currentIndex].alt;
+}
+
+prev.addEventListener("click", (e) => {
+  e.stopPropagation();
+  showImage(currentIndex - 1);
+});
+
+next.addEventListener("click", (e) => {
+  e.stopPropagation();
+  showImage(currentIndex + 1);
+});
+
+});
+</script>
+

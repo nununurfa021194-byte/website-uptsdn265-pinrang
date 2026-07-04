@@ -1,0 +1,81 @@
+<section id="profil" class="profil">
+  <div class="container">
+    <h2>Profil Sekolah</h2>
+
+    <div class="card">
+      <div class="item"><strong>Nama Sekolah</strong><span>UPT SDN 265 PINRANG</span></div>
+      <div class="item"><strong>NPSN</strong><span>40305060</span></div>
+      <div class="item"><strong>Status</strong><span>Negeri</span></div>
+      <div class="item"><strong>Akreditasi</strong><span>B</span></div>
+      <div class="item"><strong>Alamat</strong><span>Sikkuale, Desa Sikkuale</span></div>
+      <div class="item"><strong>Kecamatan</strong><span>Cempa</span></div>
+      <div class="item"><strong>Kabupaten</strong><span>Pinrang</span></div>
+      <div class="item"><strong>Provinsi</strong><span>Sulawesi Selatan</span></div>
+      <div class="item"><strong>Kode Pos</strong><span>911262</span></div>
+      <div class="item"><strong>Tahun Berdiri</strong><span>1982</span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.profil{
+    padding:80px 8%;
+    background:white;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.profil h2{
+    text-align:center;
+    color:#0B5ED7;
+    font-size:40px;
+    margin-bottom:40px;
+    position:relative;
+}
+
+.profil h2::after{
+    content:"";
+    width:90px;
+    height:5px;
+    background:#FFC107;
+    display:block;
+    margin:15px auto 0;
+    border-radius:30px;
+}
+
+.card{
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 25px;
+    border-bottom:1px solid #e9ecef;
+}
+
+.item:last-child{
+    border-bottom:none;
+}
+
+.item strong{
+    color:#0B5ED7;
+}
+
+.item span{
+    color:#444;
+}
+
+@media(max-width:768px){
+.item{
+    flex-direction:column;
+    gap:8px;
+}
+}
+</style>

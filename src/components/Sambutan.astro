@@ -1,0 +1,133 @@
+<section class="sambutan">
+  <div class="container">
+
+    <div class="foto">
+      <img src="/images/guru-tendik/01-kepala-sekolah.jpeg" alt="Kepala Sekolah">
+      <h3>MUHAMMAD YUSUF, S.Pd., M.Si</h3>
+      <p>Kepala UPT SDN 265 Pinrang</p>
+    </div>
+
+    <div class="isi">
+      <h2>Sambutan Kepala Sekolah</h2>
+
+      <p>
+        <strong>Assalamu'alaikum Warahmatullahi Wabarakatuh.</strong>
+      </p>
+
+      <p>
+        Puji syukur ke hadirat Allah SWT atas segala rahmat dan karunia-Nya,
+        sehingga Website Resmi UPT SDN 265 Pinrang dapat hadir sebagai media
+        informasi, komunikasi, dan publikasi bagi seluruh warga sekolah dan masyarakat.
+      </p>
+
+      <p>
+        Website ini diharapkan menjadi sarana untuk memberikan informasi mengenai
+        profil sekolah, kegiatan, prestasi, serta berbagai program yang dilaksanakan
+        di lingkungan sekolah.
+      </p>
+
+      <p>
+        Kami berkomitmen mewujudkan peserta didik yang unggul dalam prestasi,
+        berkarakter, beriman, dan peduli lingkungan sesuai dengan motto sekolah.
+      </p>
+
+      <p>
+        Terima kasih kepada seluruh guru, tenaga kependidikan, peserta didik,
+        orang tua, dan masyarakat atas dukungan yang diberikan.
+      </p>
+
+      <p>
+        <strong>Wassalamu'alaikum Warahmatullahi Wabarakatuh.</strong>
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.sambutan{
+    padding:80px 8%;
+    background:#f5f7fb;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    gap:60px;
+    align-items:center;
+}
+
+.foto{
+    flex:1;
+    text-align:center;
+}
+
+.foto img{
+    width:280px;
+    height:350px;
+    object-fit:cover;
+    border-radius:20px;
+    border:6px solid white;
+    box-shadow:0 10px 30px rgba(0,0,0,.20);
+}
+
+.foto h3{
+    margin-top:20px;
+    color:#0B5ED7;
+    font-size:24px;
+}
+
+.foto p{
+    color:#666;
+    font-size:18px;
+}
+
+.isi{
+    flex:2;
+}
+
+.isi h2{
+    color:#0B5ED7;
+    font-size:42px;
+    margin-bottom:30px;
+    position:relative;
+}
+
+.isi h2::after{
+    content:"";
+    width:80px;
+    height:4px;
+    background:#FFC107;
+    display:block;
+    margin-top:12px;
+    border-radius:10px;
+}
+
+.isi p{
+    text-align:justify;
+    line-height:2;
+    font-size:18px;
+    color:#444;
+    margin-bottom:18px;
+}
+
+@media(max-width:900px){
+
+.container{
+    flex-direction:column;
+}
+
+.foto img{
+    width:220px;
+    height:280px;
+}
+
+.isi h2{
+    font-size:32px;
+    text-align:center;
+}
+
+}
+</style>
