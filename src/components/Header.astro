@@ -1,13 +1,27 @@
 <header class="header">
   <div class="container">
-    <div class="logo">
-      <img src="/images/logo/logo baru 265.jpeg" alt="Logo Sekolah" />
 
-      <div>
-        <h1>UPT SDN 265 PINRANG</h1>
-        <p>Unggul dalam Prestasi, Berkarakter, Beriman, dan Peduli Lingkungan</p>
-      </div>
+  <div class="logo">
+    <img src="/images/logo/logo baru 265.jpeg" alt="Logo Sekolah" />
+
+    <div class="logo-text">
+      <h1>UPT SDN 265 PINRANG</h1>
+      <p>Unggul dalam Prestasi, Berkarakter, Beriman, dan Peduli Lingkungan</p>
     </div>
+  </div>
+
+  <button class="menu-toggle" id="menuToggle">
+    ☰
+  </button>
+
+  <nav id="navMenu">
+    <a href="#beranda">Beranda</a>
+    <a href="#profil">Profil</a>
+    <a href="#guru">Guru</a>
+    <a href="#galeri">Galeri</a>
+  </nav>
+
+</div>
 
     <nav>
   <a href="#beranda">Beranda</a>
@@ -22,17 +36,13 @@
 <style>
 .header{
   background:#0B5ED7;
-  color:white;
-  padding:15px 0;
-
+  color:#fff;
   position:fixed;
   top:0;
   left:0;
   width:100%;
-
   z-index:9999;
-
-  box-shadow:0 4px 20px rgba(0,0,0,.12);
+  box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 .container{
@@ -42,6 +52,7 @@
   display:flex;
   justify-content:space-between;
   align-items:center;
+  min-height:80px;
 }
 
 .logo{
@@ -53,18 +64,21 @@
 .logo img{
   width:60px;
   height:60px;
+  border-radius:50%;
   object-fit:cover;
 }
 
-.logo h1{
+.logo-text h1{
   margin:0;
-  font-size:24px;
+  font-size:22px;
 }
 
-.logo p{
-  margin:0;
-  font-size:14px;
+.logo-text p{
+  margin:4px 0 0;
+  font-size:13px;
 }
+
+/* ================= DESKTOP ================= */
 
 nav{
   display:flex;
@@ -72,17 +86,99 @@ nav{
 }
 
 nav a{
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-weight:600;
   padding:8px 14px;
   border-radius:8px;
-  transition:all .3s ease;
+  transition:.3s;
 }
 
 nav a:hover{
   background:rgba(255,255,255,.15);
   color:#FFD43B;
 }
+
+/* Tombol ☰ */
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  color:white;
+  font-size:32px;
+  cursor:pointer;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+.container{
+  min-height:70px;
+}
+
+.logo img{
+  width:45px;
+  height:45px;
+}
+
+.logo-text h1{
+  font-size:16px;
+}
+
+.logo-text p{
+  display:none;
+}
+
+.menu-toggle{
+  display:block;
+}
+
+nav{
+  display:none;
+  position:absolute;
+  top:70px;
+  left:0;
+  width:100%;
+  background:#0B5ED7;
+  flex-direction:column;
+  gap:0;
+}
+
+nav.active{
+  display:flex;
+}
+
+nav a{
+  display:block;
+  padding:15px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+
 }
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  if(menuToggle && navMenu){
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll("#navMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+      });
+    });
+
+  }
+
+});
+</script>
