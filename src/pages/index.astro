@@ -11,46 +11,38 @@ import GuruTendik from "../components/GuruTendik.astro";
 import Galeri from "../components/Galeri.astro";
 import Kontak from "../components/Kontak.astro";
 import Footer from "../components/Footer.astro";
-
 ---
-<style>
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
 
-.hero, .guru, .profil {
-  scroll-margin-top: 80px;
-}
-</style>
-
- 
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UPT SDN 265 PINRANG</title>
-    
-  </head>
-  </html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-  html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
+  <title>UPT SDN 265 PINRANG</title>
 
-.hero, .guru, .profil {
-  scroll-margin-top: 80px;
-}
-html, body {
-  scroll-behavior: smooth;
-  height: 100%;
-}
+  <style>
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:95px;
+    }
 
-</style>
+    body{
+      margin:0;
+      padding-top:95px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
 
-  <body style="padding-top:95px;">
+    #beranda,
+    #profil,
+    #guru,
+    #galeri{
+      scroll-margin-top:95px;
+    }
+  </style>
+
+</head>
+
+<body>
 
   <Header />
 
@@ -71,10 +63,7 @@ html, body {
   <Kontak />
 
   <Footer />
- 
+
 </body>
 
 </html>
-
-
-

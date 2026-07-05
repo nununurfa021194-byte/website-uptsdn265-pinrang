@@ -1,81 +1,220 @@
 <section id="profil" class="profil">
+
   <div class="container">
+
     <h2>Profil Sekolah</h2>
 
+    <p class="subjudul">
+      Informasi umum mengenai UPT SDN 265 Pinrang.
+    </p>
+
     <div class="card">
-      <div class="item"><strong>Nama Sekolah</strong><span>UPT SDN 265 PINRANG</span></div>
-      <div class="item"><strong>NPSN</strong><span>40305060</span></div>
-      <div class="item"><strong>Status</strong><span>Negeri</span></div>
-      <div class="item"><strong>Akreditasi</strong><span>B</span></div>
-      <div class="item"><strong>Alamat</strong><span>Sikkuale, Desa Sikkuale</span></div>
-      <div class="item"><strong>Kecamatan</strong><span>Cempa</span></div>
-      <div class="item"><strong>Kabupaten</strong><span>Pinrang</span></div>
-      <div class="item"><strong>Provinsi</strong><span>Sulawesi Selatan</span></div>
-      <div class="item"><strong>Kode Pos</strong><span>911262</span></div>
-      <div class="item"><strong>Tahun Berdiri</strong><span>1982</span></div>
+
+      <div class="item">
+        <strong>Nama Sekolah</strong>
+        <span>UPT SDN 265 PINRANG</span>
+      </div>
+
+      <div class="item">
+        <strong>NPSN</strong>
+        <span>40305060</span>
+      </div>
+
+      <div class="item">
+        <strong>Status</strong>
+        <span>Negeri</span>
+      </div>
+
+      <div class="item">
+        <strong>Akreditasi</strong>
+        <span>B</span>
+      </div>
+
+      <div class="item">
+        <strong>Alamat</strong>
+        <span>Sikkuale, Desa Sikkuale</span>
+      </div>
+
+      <div class="item">
+        <strong>Kecamatan</strong>
+        <span>Cempa</span>
+      </div>
+
+      <div class="item">
+        <strong>Kabupaten</strong>
+        <span>Pinrang</span>
+      </div>
+
+      <div class="item">
+        <strong>Provinsi</strong>
+        <span>Sulawesi Selatan</span>
+      </div>
+
+      <div class="item">
+        <strong>Kode Pos</strong>
+        <span>911262</span>
+      </div>
+
+      <div class="item">
+        <strong>Tahun Berdiri</strong>
+        <span>1982</span>
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
 <style>
+
 .profil{
-    padding:80px 8%;
-    background:white;
+
+    padding:90px 20px;
+    background:#f8f9fa;
+
 }
 
 .container{
+
     max-width:1100px;
     margin:auto;
+
 }
 
 .profil h2{
+
     text-align:center;
     color:#0B5ED7;
-    font-size:40px;
-    margin-bottom:40px;
-    position:relative;
+    font-size:42px;
+    margin-bottom:10px;
+
+}
+
+.subjudul{
+
+    text-align:center;
+    color:#666;
+    margin-bottom:45px;
+    font-size:18px;
+
 }
 
 .profil h2::after{
+
     content:"";
+
     width:90px;
     height:5px;
+
     background:#FFC107;
+
     display:block;
-    margin:15px auto 0;
-    border-radius:30px;
+
+    margin:18px auto 0;
+
+    border-radius:20px;
+
 }
 
 .card{
-    background:#ffffff;
+
+    background:white;
+
     border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
     overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
 }
 
 .item{
+
     display:flex;
+
     justify-content:space-between;
+
+    align-items:center;
+
     padding:18px 25px;
-    border-bottom:1px solid #e9ecef;
+
+    border-bottom:1px solid #ececec;
+
+    transition:.3s;
+
+}
+
+.item:hover{
+
+    background:#f8fbff;
+
 }
 
 .item:last-child{
+
     border-bottom:none;
+
 }
 
 .item strong{
+
     color:#0B5ED7;
+
+    font-size:17px;
+
 }
 
 .item span{
+
     color:#444;
+
+    text-align:right;
+
 }
 
+/* ===========================
+   HP
+=========================== */
+
 @media(max-width:768px){
+
+.profil{
+
+    padding:70px 15px;
+
+}
+
+.profil h2{
+
+    font-size:30px;
+
+}
+
+.subjudul{
+
+    font-size:16px;
+
+    margin-bottom:30px;
+
+}
+
 .item{
+
     flex-direction:column;
+
+    align-items:flex-start;
+
     gap:8px;
+
 }
+
+.item span{
+
+    text-align:left;
+
 }
+
+}
+
 </style>
